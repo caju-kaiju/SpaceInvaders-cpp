@@ -15,6 +15,7 @@ struct Player : public Actor, public Renderable {
     // Actor
     virtual void move_by(const Vector2& movemnet) override;
     virtual void yell() override;
+    virtual void shoot() override;
 
     // Renderable
     void render() override;

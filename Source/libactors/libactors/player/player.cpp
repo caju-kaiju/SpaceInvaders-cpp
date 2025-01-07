@@ -15,6 +15,10 @@ void Player::yell() {
     std::cout << "Player: YELL!\n";
 }
 
+void Player::shoot() {
+    std::cout << "Player: Shoot my shot!\n";
+}
+
 // Renderable
 void Player::render() {
     DrawRectangleV(this->pos, this->size, RAYWHITE);

@@ -12,6 +12,7 @@ target_sources(
   libcommands
   PRIVATE "${CMAKE_CURRENT_LIST_DIR}/libcommands/command/command.cpp"
   PRIVATE "${CMAKE_CURRENT_LIST_DIR}/libcommands/commandmove/commandmove.cpp"
-  PRIVATE "${CMAKE_CURRENT_LIST_DIR}/libcommands/commandyell/commandyell.cpp")
+  PRIVATE "${CMAKE_CURRENT_LIST_DIR}/libcommands/commandyell/commandyell.cpp"
+  PRIVATE "${CMAKE_CURRENT_LIST_DIR}/libcommands/commandshoot/commandshoot.cpp")
 
 target_link_libraries(libcommands PRIVATE libactors)

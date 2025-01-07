@@ -1,8 +1,9 @@
-add_subdirectory(./libwindow/)
-add_subdirectory(./libactors/)
-add_subdirectory(./libcommands/)
-add_subdirectory(./libhandlers/)
-add_subdirectory(./librenderable/)
+add_subdirectory("./libwindow/")
+add_subdirectory("./libactors/")
+add_subdirectory("./libcommands/")
+add_subdirectory("./libhandlers/")
+add_subdirectory("./librenderable/")
+add_subdirectory("./libprojectiles/")
 
 add_executable(SpaceInvaders)
 target_sources(SpaceInvaders PRIVATE main.cpp)
@@ -12,6 +13,7 @@ target_include_directories(
   PUBLIC "./libwindow/"
   PUBLIC "./libactors/"
   PUBLIC "./libhandlers/"
+  PUBLIC "./libprojectiles/"
   PUBLIC "./libcommands/")
 
 target_link_libraries(
@@ -21,4 +23,5 @@ target_link_libraries(
   PRIVATE libwindow
   PRIVATE libactors
   PRIVATE libcommands
+  PRIVATE libprojectiles
   PRIVATE libhandlers)

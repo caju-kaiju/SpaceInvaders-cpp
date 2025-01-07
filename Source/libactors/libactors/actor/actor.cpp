@@ -10,3 +10,8 @@ void Actor::yell() {
     // Default implementation does nothing
     std::cout << "Base yell called\n";
 }
+
+void Actor::shoot() {
+    // Default implementation does nothing
+    std::cout << "Base shoot called\n";
+}
