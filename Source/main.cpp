@@ -1,7 +1,9 @@
 #include <libwindow/window.hpp>
 #include <libactors/player/player.hpp>
+#include <libprojectiles/bullet/bullet.hpp>
 #include <libcommands/command/command.hpp>
 #include <libhandlers/inputhandler/inputhandler.hpp>
+#include <libprojectiles/projectile_manager/projectile_manager.hpp>
 #include "raylib.h"
 
 // Globals
@@ -16,18 +18,32 @@ int main() {
     SetTargetFPS(60);
 
     Command* command;
-    InputHandler handler;
-    Player player{{.x = player_pos_x, .y = player_pos_y}, {.x = player_width, .y = player_height}};
+    InputHandler input_handler;
+    ProjectileManager projectile_manager;
+
+    Player player{
+        {.x = player_pos_x, .y = player_pos_y},
+        {.x = player_width, .y = player_height},
+        &projectile_manager
+    };
+
+    // TODO:
+    // - Add cleanup to projectile manager. If the projectiles leave the screen, delete them
+    // - Add a projectile counter to see how many projectiles are alive
+    // - Add fire rate to player
 
     while (!WindowShouldClose()) {
-        command = handler.handle_input();
+        command = input_handler.handle_input();
         if (command) {
             command->execute(player);
         }
 
+        projectile_manager.tic();
+
         BeginDrawing();
         ClearBackground(window.color);
         player.render();
+        projectile_manager.render();
         EndDrawing();
     }
 }

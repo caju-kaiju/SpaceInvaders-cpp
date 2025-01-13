@@ -1,18 +1,14 @@
-// Bullet();
-//     Bullet(Vector2 location, Vector2 speed);
-//
-//     virtual void move() override;
-//
-//     Vector2 location;
-//     Vector2 speed;
-
 #include <libprojectiles/bullet/bullet.hpp>
 #include "raylib.h"
 
-Bullet::Bullet() : location({.x = 0.0f, .y = 0.0f}), speed({.x = 0.0f, .y = 0.0f}) {}
-Bullet::Bullet(Vector2 location, Vector2 speed) : location(location), speed(speed) {}
+Bullet::Bullet() : pos({.x = 0.0f, .y = 0.0f}), speed({.x = 0.0f, .y = 0.0f}), size({.x = 5.0f, .y = 5.0f}) {}
+Bullet::Bullet(Vector2 pos, Vector2 speed) : pos(pos), speed(speed), size({.x = 5.0f, .y = 15.0f}) {}
 
 void Bullet::move() {
-    this->location.x += speed.x;
-    this->location.y += speed.y;
+    this->pos.x += speed.x;
+    this->pos.y += speed.y;
+}
+
+void Bullet::render() {
+    DrawRectangleV(this->pos, this->size, RED);
 }

@@ -1,2 +1,0 @@
-add_library(Renderable INTERFACE)
-target_include_directories(Renderable INTERFACE include)

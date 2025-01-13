@@ -5,12 +5,15 @@
 #include <libactors/actor/actor.hpp>
 #include "raylib.h"
 
+struct ProjectileManager;
+
 struct Player : public Actor, public Renderable {
     Vector2 pos;
     Vector2 size;
+    ProjectileManager* projectile_manager;
 
     Player();
-    Player(Vector2 positon, Vector2 size);
+    Player(Vector2 positon, Vector2 size, ProjectileManager* manager);
 
     // Actor
     virtual void move_by(const Vector2& movemnet) override;
